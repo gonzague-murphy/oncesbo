@@ -23,13 +23,7 @@
 }
 
 #header{
-width : 100%;
-height : 100%;
-padding-bottom : 200px;
-margin : 0 5.5% 10% 5.5%;
-/*border-bottom-style: solid ; 
-border-bottom-color: black; 
-border-bottom-width: 10px; */
+	height : 250px;
 
 
 }
@@ -44,7 +38,7 @@ body {
 }
 
 #wrapper{
-	width : 100%;
+	width : 89%;
 	margin : 5.5% 5.5%;
 }
 
@@ -101,7 +95,7 @@ ol{
 list-style : none;
 position : absolute;
 top : 135px;
-right : 10%;
+right : 0%;
 }
 
 
@@ -193,11 +187,6 @@ color : #1fb51f;
 }
 
 
-
-.backoffice ul{
-	width : 100%;
-}
-
 .backoffice ul li{
 	display : inline-block;
 	width : 20%;
@@ -211,11 +200,11 @@ color : #1fb51f;
 
 .backoffice .postArticle h4{
 	font-size : 20px;
-	text-transform : uppercase;
 	font-family : 'FrancoisOneRegular';
+	text-align : left;
 }
 
-.backoffice .postArticle span, .detailArticle span{
+.detailArticle span{
 	font-size : 14px;
 }
 
@@ -248,9 +237,15 @@ color : #1fb51f;
 	color : black;
 }
 
+.postArticle p, .postArticle a{
+	font-size : 12px;
+}
+.postArticle span{
+	font-size : 10px;
+}
+
 .detailArticle h2{
 	font-size : 28px;
-	text-align : center;
 	color : #000000;
 	text-shadow: -2px 0px 0px #1FB51F;
 	text-transform : uppercase;
@@ -259,7 +254,34 @@ color : #1fb51f;
 .detailArticle p{
 	text-align : justify;
 	width : 100%;
-	margin : 10% 0 2% 0;
+	margin : 5% 0 2% 0;
+}
+
+.detailArticle img{
+	margin-top : 7%;
+}
+.linkStyle{
+	font-size : 14px;
+	text-decoration : underline;
+	margin-bottom : 5%;
+	text-align : center;
+}
+
+.desc{
+	width : 40%;
+	float : right;
+	margin-top : 7%;
+}
+
+.desc p{
+	width : 100%;
+	margin-top : 0;
+}
+
+.desc a{
+	display : inline;
+	text-decoration : underline;
+	color : #1FB51F;
 }
 
 .addForms a{
@@ -296,6 +318,16 @@ color : #1fb51f;
 	color : #ffffff;
 	padding : 5px 5px;
 	font-size : 1em;
+}
+
+.valid{
+	color : green;
+	font-family : 'Roboto';
+}
+
+.error{
+	color : red;
+	font-family : 'Roboto';
 }
 
 /*----------------------------

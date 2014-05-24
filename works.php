@@ -8,7 +8,8 @@ $pullWorks = execute_requete("SELECT * FROM works");
 $works = $pullWorks->fetch_all(MYSQLI_ASSOC);
 foreach($works as $key=>$value){
 	echo "<li><h4>".$value['title']."</h4>";
-	echo "<a href='/portfolio/project.php?id=".$value['id_works']."'><img src='".$value['picture']."' /></a>";
+	echo "<a href='project.php?id=".$value['id_works']."'  class='linkStyle'>→ Voir en détail</a>";
+	echo "<a href='/portfolio/project.php?id=".$value['id_works']."' ><img src='".$value['picture']."' /></a>";
 	echo "</li>";
 }
 ?>

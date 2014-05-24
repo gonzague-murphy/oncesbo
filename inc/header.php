@@ -6,6 +6,7 @@
   <title>Oncesbo</title>
   <link href='http://fonts.googleapis.com/css?family=Roboto&subset=latin' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?php echo RACINE_SITE; ?>css/style.css" />
+  <script src="<?php echo RACINE_SITE;?>js/ckeditor/ckeditor.js"></script>
 
 </head>
 <body>

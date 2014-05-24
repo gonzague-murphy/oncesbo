@@ -20,10 +20,17 @@ if(isset($_GET['action']) && is_numeric($_GET['id'])){
 		$idArt = htmlentities($_GET['id'], ENT_QUOTES);
 		$delWork = execute_requete("DELETE FROM news WHERE id_news='$idArt'");
 	}
+
 }
+if(isset($_GET['action']) && $_GET['action'] == 'deconnexion'){
+	session_destroy();
+	header('location: ../index.php');
+	exit();
+	}
 
 ?>
 <div class='backoffice'>
+<a href='?action=deconnexion'><span>*</span>Se déconnecter</a>
 <a href='add_work.php'><span>+</span>Ajouter un item à mon portfolio</a>
 <a href='add_news.php'><span>+</span>Ajouter une news</a>
 <h3>Mes derniers travaux ajoutés :</h3>
@@ -43,22 +50,22 @@ foreach($works as $key=>$value){
 <h3>Les dernières news ajoutées :</h3>
 <ul class='articles'>
 <?php
-$pullNews = execute_requete("SELECT * FROM news ORDER BY date ASC");
+$pullNews = execute_requete("SELECT * FROM news ORDER BY date DESC");
 $news = $pullNews->fetch_all(MYSQLI_ASSOC);
 foreach($news as $key=>$value){
 	echo "<li class='postArticle'>";
 	echo"<h4>".$value['title']."</h4>";
-	echo "<a href='?action=deleteArticle&id=".$value['id_news']."' class='suppr'>✘ Supprimer cet article</a><br/>";
-	echo "<span>Posté le: ".date("d/m/Y H:i:s",strtotime($value['date']))."</span>";	
+	echo "<span>Posté le: ".date("d/m/Y H:i:s",strtotime($value['date']))."</span>";
+	echo "<a href='?action=deleteArticle&id=".$value['id_news']."' class='suppr'>✘ Supprimer cet article</a><br/>";	
 	echo "<p>";
-	$string = strip_tags($value['article']);
-	if (strlen($string) > 100) {
+	$string = strip_tags(html_entity_decode($value['article']));
+	if (strlen($string) > 200) {
 
     // truncate string
-    $stringCut = substr($string, 0, 100);
+    $stringCut = substr($string, 0, 200);
 
     // make sure it ends in a word so assassinate doesn't become ass...
-    $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="/this/story">Lire la suite</a>'; 
+    $string = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="../article.php?id='.$value['id_news'].'">Lire la suite</a>'; 
 }
 	echo $string;
 	echo "</p>";

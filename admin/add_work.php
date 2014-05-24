@@ -35,7 +35,7 @@ if($_POST){
 <label for="photo">Photo :</label>
 <input type="file" name="photo" />
 <label for="desc">Description :</label>
-<textarea name='desc'></textarea>
+<textarea name='desc' class='ckeditor'></textarea>
 <input type="submit" value="Ajouter"/>
 </form>
 </div>

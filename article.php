@@ -11,7 +11,7 @@ $news = $article->fetch_array(MYSQLI_ASSOC);
 echo "<div class='detailArticle'>";
 	echo "<h2>".$news['title']."</h2>";
 	echo "<span>Posté le : ".date("d/m/Y H:i:s",strtotime($news['date']))."</span>";
-	echo "<p>".$news['article']."</p>";
+	echo "<p>".html_entity_decode($news['article'])."</p>";
 
 echo "</div>";
 ?>

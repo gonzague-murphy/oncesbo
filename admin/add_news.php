@@ -25,7 +25,7 @@ if($_POST){
 <label for="title">Titre :</label>
 <input type="text" name="title" value="<?php if(isset($_POST['title']))  echo $_POST['title']?>" />
 <label for="monarticle">Article :</label>
-<textarea name="monarticle" value="<?php if(isset($_POST['monarticle'])) echo $_POST['monarticle']?>">
+<textarea name="monarticle" class="ckeditor" value="<?php if(isset($_POST['monarticle'])) echo $_POST['monarticle']?>">
 </textarea>
 <input type="submit" value="Ajouter"/>
 </form>

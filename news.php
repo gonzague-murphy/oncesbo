@@ -6,14 +6,14 @@ echo $msg;
 <div class='backoffice'>
 <h3>Les dernières news ajoutées :</h3>
 <?php
-$pullNews = execute_requete("SELECT * FROM news ORDER BY date ASC");
+$pullNews = execute_requete("SELECT * FROM news ORDER BY date DESC");
 $news = $pullNews->fetch_all(MYSQLI_ASSOC);
 foreach($news as $key=>$value){
 	echo "<div class='postArticle'>";
 	echo "<h4>".$value['title']."</h4>";
 	echo "<span>Posté le: ".date("d/m/Y H:i:s",strtotime($value['date']))."</span>";	
 	echo "<p>";
-	$string = strip_tags($value['article']);
+	$string = strip_tags(html_entity_decode($value['article']));
 	if (strlen($string) > 300) {
 
     // truncate string
