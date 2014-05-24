@@ -1,5 +1,5 @@
 <?php
-require_once("inc/init.php");
+require_once("../inc/init.php");
 if($_POST){
 //on "nettoie" la saisie de l'utilisateur :
 		$pseudo = htmlentities($_POST['pseudo'], ENT_QUOTES);
@@ -21,7 +21,7 @@ if($_POST){
 								$_SESSION['utilisateur'][$indice] = $valeur;
 							}
 						}
-					header("location:addWorks.php");
+					header("location:dashBoard.php");
 				}
 			else{
 				$msg .= "<div class='erreur'>Erreur de mdp</div>"; 
@@ -36,7 +36,7 @@ if($_POST){
 echo $msg;
 
 ?>
-
+<div class='addForms'>
 <form method="post" action="">
 	<label>Pseudo :</label>
 	<input type="text" name="pseudo" value="<?php if(isset($_POST['pseudo'])) echo $_POST['pseudo']?>"/>
@@ -44,3 +44,4 @@ echo $msg;
 	<input type="password" name="mdp" />
 	<input type="submit" value="Connexion" />
 </form>
+</div>
